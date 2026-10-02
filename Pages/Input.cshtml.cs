@@ -4,6 +4,7 @@ using System.Text.Json;
 using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Http.Json;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Cryptography.X509Certificates;
 
 namespace A1_QuizApp.Pages;
 
@@ -12,7 +13,7 @@ public class InputModel : PageModel
     public Quiz YourQuiz { get; set; } = new Quiz(); 
     public Boolean DataOk = true;
     public string Error;
-    [TempData] public string? QuizResults { get; set; }
+    //[TempData] public string? QuizResults { get; set; }
 
     public void OnGet(string selectedQuiz)
     {
@@ -33,9 +34,7 @@ public class InputModel : PageModel
 
     public IActionResult OnPost()
     {
-        string selectedQuiz = Request.Query["selectedQuiz"];
-
-        QuizParser(selectedQuiz);
+        //[TempData] string ? QuizResults;
 
         for (int i = 0; i < YourQuiz.Questions.Count; i++)
         {
@@ -46,12 +45,8 @@ public class InputModel : PageModel
                 Error = "Please answer all the questions before submitting!";
                 DataOk = false;
                 return Page();
-                //This is working
             }
-            else
-            {
-                QuizResults = selection; //This isn't right, isn't actually quiz results
-            }
+            
         }
         return RedirectToPage("./Results");
     }

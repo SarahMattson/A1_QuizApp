@@ -1,28 +1,11 @@
-@page "/Results/" 
-@model A1_QuizApp.Pages.InputModel
+@page
 @using A1_QuizApp.Models
+@model ResultModel
 @using Microsoft.Extensions.ObjectPool
 @using Microsoft.Win32.SafeHandles
 
 <body>
-    <h1>Quiz Name: @Model.YourQuiz.Title</h1><br />
-
-        @for(int i = 0; i < Model.YourQuiz.Questions.Count; i++)
-                { 
-                    QuizQuestion? question = Model.YourQuiz.Questions[i];
-
-                    <h3>@question.QuestionText</h3>
-                    @for(int j = 0; j < question.Choices.Count; j++)
-                    {
-                        string group = $"question{i}";
-                        string choice = $"{i}choice{j}";
-                        string choiceString = question.Choices[j];
-
-                        <input type="radio" id="@choice" name="@group" value="@choiceString"/>
-                        <label for="@choice">@choiceString</label>
-                        <br>
-                    }
-                    <br />
-                }
+    <p>Hello :)</p>
 </body>
+
             
