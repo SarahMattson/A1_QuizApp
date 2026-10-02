@@ -24,7 +24,6 @@ C:\Users\sarem\OneDrive\Desktop\SSW_MVC\A01\A1_QuizApp\obj\Debug\net10.0\rjsmcsh
 C:\Users\sarem\OneDrive\Desktop\SSW_MVC\A01\A1_QuizApp\obj\Debug\net10.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\sarem\OneDrive\Desktop\SSW_MVC\A01\A1_QuizApp\obj\Debug\net10.0\scopedcss\bundle\A1_QuizApp.styles.css
 C:\Users\sarem\OneDrive\Desktop\SSW_MVC\A01\A1_QuizApp\obj\Debug\net10.0\scopedcss\projectbundle\A1_QuizApp.bundle.scp.css
-C:\Users\sarem\OneDrive\Desktop\SSW_MVC\A01\A1_QuizApp\obj\Debug\net10.0\compressed\is7uesfxcx-{0}-lugek5hnai-lugek5hnai.gz
 C:\Users\sarem\OneDrive\Desktop\SSW_MVC\A01\A1_QuizApp\obj\Debug\net10.0\compressed\e62nmtugin-{0}-61n19gt1b8-61n19gt1b8.gz
 C:\Users\sarem\OneDrive\Desktop\SSW_MVC\A01\A1_QuizApp\obj\Debug\net10.0\compressed\uak71c6tcg-{0}-fr7q2aak1r-fr7q2aak1r.gz
 C:\Users\sarem\OneDrive\Desktop\SSW_MVC\A01\A1_QuizApp\obj\Debug\net10.0\compressed\6qnod9wx1v-{0}-bqjiyaj88i-bqjiyaj88i.gz
@@ -98,3 +97,5 @@ C:\Users\sarem\OneDrive\Desktop\SSW_MVC\A01\A1_QuizApp\obj\Debug\net10.0\refint\
 C:\Users\sarem\OneDrive\Desktop\SSW_MVC\A01\A1_QuizApp\obj\Debug\net10.0\A1_QuizApp.pdb
 C:\Users\sarem\OneDrive\Desktop\SSW_MVC\A01\A1_QuizApp\obj\Debug\net10.0\A1_QuizApp.genruntimeconfig.cache
 C:\Users\sarem\OneDrive\Desktop\SSW_MVC\A01\A1_QuizApp\obj\Debug\net10.0\ref\A1_QuizApp.dll
+C:\Users\sarem\OneDrive\Desktop\SSW_MVC\A01\A1_QuizApp\obj\Debug\net10.0\A1_QuizApp.sourcelink.json
+C:\Users\sarem\OneDrive\Desktop\SSW_MVC\A01\A1_QuizApp\obj\Debug\net10.0\compressed\is7uesfxcx-{0}-9esix1fwuy-9esix1fwuy.gz

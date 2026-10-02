@@ -2,10 +2,18 @@
 @model A1_QuizApp.Pages.InputModel
 @using A1_QuizApp.Models
 @using Microsoft.Extensions.ObjectPool
+@using Microsoft.Win32.SafeHandles
 
 <body>
 <form method="post">
     <h1>Quiz Name: @Model.YourQuiz.Title</h1><br />
+
+        @if (!Model.DataOk)
+                {
+                    <textarea id="message" name="message" class="form-control">@Model.Error</textarea>    
+                }
+                <br />
+                
 
         @for(int i = 0; i < Model.YourQuiz.Questions.Count; i++)
                 { 
@@ -15,14 +23,15 @@
                     @for(int j = 0; j < question.Choices.Count; j++)
                     {
                         string group = $"question{i}";
-                        string choice = $"choice{j}";
+                        string choice = $"{i}choice{j}";
+                        string choiceString = question.Choices[j];
 
-                        <input type="radio" id="@choice" name="@group"/>
-                        <label for="@choice">@question.Choices[j]</label>
+                        <input type="radio" id="@choice" name="@group" value="@choiceString"/>
+                        <label for="@choice">@choiceString</label>
                         <br>
                     }
                     <br />
                 }
-                <button>Submit</button>
+                <button type="submit">Submit</button>
             </form>
 </body>

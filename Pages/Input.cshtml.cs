@@ -3,15 +3,20 @@ using A1_QuizApp.Models;
 using System.Text.Json;
 using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Http.Json;
+using Microsoft.AspNetCore.Mvc;
 
 namespace A1_QuizApp.Pages;
 
 public class InputModel : PageModel
 {
     public Quiz YourQuiz { get; set; } = new Quiz(); 
+    public Boolean DataOk = true;
+    public string Error;
+    [TempData] public string? QuizResults { get; set; }
 
     public void OnGet(string selectedQuiz)
     {
+        DataOk = true;
         QuizParser(selectedQuiz);
     }
 
@@ -24,5 +29,30 @@ public class InputModel : PageModel
     {
         string jsonString = System.IO.File.ReadAllText("./AppData/" + selectedQuiz + ".json");
         YourQuiz = JsonSerializer.Deserialize<Quiz>(jsonString, JsonOptions) ?? new Quiz();
+    }
+
+    public IActionResult OnPost()
+    {
+        string selectedQuiz = Request.Query["selectedQuiz"];
+
+        QuizParser(selectedQuiz);
+
+        for (int i = 0; i < YourQuiz.Questions.Count; i++)
+        {
+            string selection = Request.Form[$"question{i}"].ToString();
+
+            if (string.IsNullOrEmpty(selection))
+            {
+                Error = "Please answer all the questions before submitting!";
+                DataOk = false;
+                return Page();
+                //This is working
+            }
+            else
+            {
+                QuizResults = selection; //This isn't right, isn't actually quiz results
+            }
+        }
+        return RedirectToPage("./Results");
     }
 }
