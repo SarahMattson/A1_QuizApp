@@ -98,4 +98,4 @@ C:\Users\sarem\OneDrive\Desktop\SSW_MVC\A01\A1_QuizApp\obj\Debug\net10.0\A1_Quiz
 C:\Users\sarem\OneDrive\Desktop\SSW_MVC\A01\A1_QuizApp\obj\Debug\net10.0\A1_QuizApp.genruntimeconfig.cache
 C:\Users\sarem\OneDrive\Desktop\SSW_MVC\A01\A1_QuizApp\obj\Debug\net10.0\ref\A1_QuizApp.dll
 C:\Users\sarem\OneDrive\Desktop\SSW_MVC\A01\A1_QuizApp\obj\Debug\net10.0\A1_QuizApp.sourcelink.json
-C:\Users\sarem\OneDrive\Desktop\SSW_MVC\A01\A1_QuizApp\obj\Debug\net10.0\compressed\is7uesfxcx-{0}-9esix1fwuy-9esix1fwuy.gz
+C:\Users\sarem\OneDrive\Desktop\SSW_MVC\A01\A1_QuizApp\obj\Debug\net10.0\compressed\is7uesfxcx-{0}-14pq1eic0a-14pq1eic0a.gz

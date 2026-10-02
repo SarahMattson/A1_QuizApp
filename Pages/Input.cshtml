@@ -6,16 +6,16 @@
 @using Microsoft.Win32.SafeHandles
 
 <body>
-<form method="post">
-    <h1>Quiz Name: @Model.YourQuiz.Title</h1><br />
 
+    <h1>Quiz Name: @Model.YourQuiz.Title</h1><br />
+         
         @if (!Model.DataOk)
                 {
-                    <textarea id="message" name="message" class="form-control">@Model.Error</textarea>    
+                    <div id="message" name="message" class="form-control">@Model.Error</div>    
                 }
                 <br />
                 
-
+<form method="post">
         @for(int i = 0; i < Model.YourQuiz.Questions.Count; i++)
                 { 
                     QuizQuestion? question = Model.YourQuiz.Questions[i];

@@ -1,11 +1,20 @@
 @page
 @using A1_QuizApp.Models
-@model ResultModel
+@model ResultModel 
+
 @using Microsoft.Extensions.ObjectPool
 @using Microsoft.Win32.SafeHandles
 
-<body>
-    <p>Hello :)</p>
-</body>
+@if (Model.OkData)
+{
+    <body>
+    <h1>Quiz Name: @Model.UserQuiz.Title</h1>
+    @Model.UserAnswers[1];
+    @for (int i = 0; i < Model.UserAnswers.Count(); i++)
+        {
+            QuizQuestion? question = Model.UserQuiz.Questions[i];
+            <h1>@Model.UserAnswers[i]</h1>
+        }
+    </body>
+}
 
-            

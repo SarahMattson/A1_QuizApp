@@ -42,3 +42,7 @@ body {
   background-color: rgb(243, 87, 87);
   font-weight: bold;
 }
+
+.hidden {
+  display: none;
+}
