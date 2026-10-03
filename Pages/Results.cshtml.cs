@@ -1,23 +1,22 @@
 using System.Dynamic;
 using System.Text.Json;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using A1_QuizApp.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace A1_QuizApp.Pages;
 
 public class ResultModel : PageModel
 {
-    public List<string> UserAnswers { get; set; }
+    public string[] UserAnswers { get; set; }
     public Quiz UserQuiz { get; set; }
     public bool OkData { get; set; } = true;
 
-    public void OnGet()
+    public void OnGet(string userQuiz, string sendAnswers)
     {
-
-        List<string> answers = TempData["sendAnswers"] as List<string>;
-        var quiz = TempData["userQuiz"];
+        string quiz = TempData["userQuiz"].ToString();
+        string answers = TempData["sendAnswers"].ToString();
 
         if (answers == null)
         {
@@ -30,17 +29,15 @@ public class ResultModel : PageModel
 
         if (OkData)
         {
-            UserAnswers = answers;
-            UserQuiz = JsonSerializer.Deserialize<Quiz>(quiz.ToString(), JsonOptions) ;
+            UserAnswers = answers.Split(" q ");
+            UserQuiz = JsonSerializer.Deserialize<Quiz>(quiz.ToString(), JsonOptions);
             OkData = true;
         }
-
     }
 
     private static readonly JsonSerializerOptions JsonOptions = new()
     {
-        PropertyNameCaseInsensitive = true,    
+        PropertyNameCaseInsensitive = true,
     };
+}
 
- 
-} 

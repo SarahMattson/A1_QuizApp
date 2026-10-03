@@ -1,16 +1,16 @@
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using A1_QuizApp.Models;
-using System.Text.Json;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
+using System.Text.Json;
+using A1_QuizApp.Models;
 using Microsoft.AspNetCore.Http.Json;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Cryptography.X509Certificates;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace A1_QuizApp.Pages;
 
 public class InputModel : PageModel
 {
-    public Quiz YourQuiz { get; set; } = new Quiz(); 
+    public Quiz YourQuiz { get; set; } = new Quiz();
     public Boolean DataOk = true;
     public string Error;
 
@@ -18,26 +18,23 @@ public class InputModel : PageModel
     {
         DataOk = true;
         QuizParser(selectedQuiz);
-        
     }
 
     private static readonly JsonSerializerOptions JsonOptions = new()
     {
-        PropertyNameCaseInsensitive = true,    
+        PropertyNameCaseInsensitive = true,
     };
 
-    private void QuizParser (string selectedQuiz)
+    private void QuizParser(string selectedQuiz)
     {
         string jsonString = System.IO.File.ReadAllText("./AppData/" + selectedQuiz + ".json");
         YourQuiz = JsonSerializer.Deserialize<Quiz>(jsonString, JsonOptions) ?? new Quiz();
     }
 
-    public IActionResult OnPost()
+    public IActionResult OnPost(string selectedQuiz)
     {
-        string? selectedQuiz = Request.Query["selectedQuiz"];
         QuizParser(selectedQuiz);
-
-        List<string> userAnswers = new List<string>();
+        string userAnswers = "";
 
         for (int i = 0; i < YourQuiz.Questions.Count; i++)
         {
@@ -49,11 +46,11 @@ public class InputModel : PageModel
                 DataOk = false;
                 return Page();
             }
-            userAnswers.Add(selection);
+            userAnswers += selection.ToString() + " q ";
         }
 
         TempData["sendAnswers"] = userAnswers;
-        TempData["userQuiz"] = JsonSerializer.Serialize(selectedQuiz);
+        TempData["userQuiz"] = JsonSerializer.Serialize(YourQuiz).ToString();
         return RedirectToPage("./Results");
     }
 }
